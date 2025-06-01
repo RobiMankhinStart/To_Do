@@ -1,9 +1,9 @@
 import React from "react";
 
-const TagButtons = (props) => {
+const TagButtons = ({ tagName }) => {
   return (
-    <button className="px-2 text-sm font-medium bg-slate-200 rounded-md">
-      {props.tagName}
+    <button className="px-2 text-sm font-medium bg-slate-300 rounded-md">
+      {tagName}
     </button>
   );
 };

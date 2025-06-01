@@ -12,7 +12,7 @@ const HeaderSection = () => {
         />
 
         <div className="flex gap-8">
-          <div className="flex gap-4">
+          <div className="flex gap-4 text-gray-600">
             <TagButtons tagName="HTML" />
             <TagButtons tagName="CSS" />
             <TagButtons tagName="JavaScript" />
