@@ -5,6 +5,7 @@ const HeaderSection = () => {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "todo",
+    tags: [],
   });
   const handleTaskData = (e) => {
     const { name, value } = e.target;
@@ -17,7 +18,19 @@ const HeaderSection = () => {
     e.preventDefault();
     console.log(taskData);
   };
-
+  const selectTag = (t) => {
+    const filteredData = taskData.tags.filter((value) => value !== t);
+    if (taskData.tags.some((tag) => tag == t)) {
+      setTaskData((prev) => {
+        return { ...prev, tags: filteredData };
+      });
+    } else {
+      setTaskData((prev) => {
+        return { ...prev, tags: [...prev.tags, t] };
+      });
+    }
+  };
+  console.log(taskData.tags);
   return (
     <header>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -32,10 +45,10 @@ const HeaderSection = () => {
 
         <div className="flex gap-8">
           <div className="flex gap-4 text-gray-600">
-            <TagButtons tagName="HTML" />
-            <TagButtons tagName="CSS" />
-            <TagButtons tagName="JavaScript" />
-            <TagButtons tagName="React" />
+            <TagButtons selectTag={selectTag} tagName="HTML" />
+            <TagButtons selectTag={selectTag} tagName="CSS" />
+            <TagButtons selectTag={selectTag} tagName="JavaScript" />
+            <TagButtons selectTag={selectTag} tagName="React" />
           </div>
           <div className="flex gap-3">
             <select
