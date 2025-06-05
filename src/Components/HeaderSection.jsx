@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TagButtons from "./TagButtons";
 
-const HeaderSection = () => {
+const HeaderSection = ({ setTasks }) => {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "todo",
@@ -14,10 +14,15 @@ const HeaderSection = () => {
       return { ...prev, [name]: value };
     });
   };
+  // .......submit all info into the Array........
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(taskData);
+    setTasks((prev) => {
+      return [...prev, taskData];
+    });
   };
+  // .......function to make an array of selecting tags ...........
+
   const selectTag = (t) => {
     const filteredData = taskData.tags.filter((value) => value !== t);
     if (taskData.tags.some((tag) => tag == t)) {
@@ -30,7 +35,11 @@ const HeaderSection = () => {
       });
     }
   };
-  console.log(taskData.tags);
+  // console.log(taskData.tags);
+  // .......function to highlight selecting tags ...........
+  const highlightSelectedTags = (t) => {
+    return taskData.tags.some((value) => value == t);
+  };
   return (
     <header>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -45,10 +54,26 @@ const HeaderSection = () => {
 
         <div className="flex gap-8">
           <div className="flex gap-4 text-gray-600">
-            <TagButtons selectTag={selectTag} tagName="HTML" />
-            <TagButtons selectTag={selectTag} tagName="CSS" />
-            <TagButtons selectTag={selectTag} tagName="JavaScript" />
-            <TagButtons selectTag={selectTag} tagName="React" />
+            <TagButtons
+              selectTag={selectTag}
+              tagName="HTML"
+              selected={highlightSelectedTags("HTML")}
+            />
+            <TagButtons
+              selectTag={selectTag}
+              tagName="CSS"
+              selected={highlightSelectedTags("CSS")}
+            />
+            <TagButtons
+              selectTag={selectTag}
+              tagName="JavaScript"
+              selected={highlightSelectedTags("JavaScript")}
+            />
+            <TagButtons
+              selectTag={selectTag}
+              tagName="React"
+              selected={highlightSelectedTags("React")}
+            />
           </div>
           <div className="flex gap-3">
             <select
