@@ -12,7 +12,7 @@ const TagButtons = ({ tagName, selectTag, selected }) => {
       type="button"
       onClick={() => selectTag(tagName)}
       className={`${
-        selected ? selectedBGTags[tagName] : "bg-slate-100"
+        selected(tagName) ? selectedBGTags[tagName] : "bg-slate-100"
       } px-2 text-sm  font-medium rounded-md`}
     >
       {tagName}

@@ -16,20 +16,20 @@ function App() {
       <main className="flex gap-[45px]">
         <TaskColumn
           icon={TbTargetArrow}
-          col="ToDo"
+          colName="ToDo"
           tasks={tasks || []}
           checkStatus="todo"
         />
         <TaskColumn
           icon={FcProcess}
-          col="Doing"
-          tasks={tasks}
+          colName="Doing"
+          tasks={tasks || []}
           checkStatus="doing"
         />
         <TaskColumn
           icon={IoCheckmarkDoneCircle}
-          col="Done"
-          tasks={tasks}
+          colName="Done"
+          tasks={tasks || []}
           checkStatus="done"
         />
       </main>
