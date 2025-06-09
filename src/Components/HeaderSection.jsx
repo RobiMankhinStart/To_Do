@@ -42,6 +42,11 @@ const HeaderSection = ({ setTasks }) => {
     setTasks((prev) => {
       return [...prev, taskData];
     });
+    setTaskData({
+      task: "",
+      status: "todo",
+      tags: [],
+    });
   };
   return (
     <header>
@@ -60,22 +65,22 @@ const HeaderSection = ({ setTasks }) => {
             <TagButtons
               selectTag={selectTag}
               tagName="HTML"
-              selected={highlightSelectedTags}
+              selected={highlightSelectedTags("HTML")}
             />
             <TagButtons
               selectTag={selectTag}
               tagName="CSS"
-              selected={highlightSelectedTags}
+              selected={highlightSelectedTags("CSS")}
             />
             <TagButtons
               selectTag={selectTag}
               tagName="JavaScript"
-              selected={highlightSelectedTags}
+              selected={highlightSelectedTags("JavaScript")}
             />
             <TagButtons
               selectTag={selectTag}
               tagName="React"
-              selected={highlightSelectedTags}
+              selected={highlightSelectedTags("React")}
             />
           </div>
           <div className="flex gap-3">

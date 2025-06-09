@@ -3,19 +3,22 @@ import TagButtons from "./TagButtons";
 import { RiDeleteBin2Line } from "react-icons/ri";
 
 const TaskCard = ({ task, tags }) => {
+  // .......function to highlight selecting tags ...........
+  const tagHighlighting = (t) => tags.some((i) => i == t);
   return (
-    <article className="flex flex-col gap-6 p-3 bg-gray-200 rounded-md shadow-md shadow-gray-500">
-      <h3 className="bg-slate-50 w-[350px] h-[200px]">{task}</h3>
-      <div className="flex gap-6">
-        {(tags || []).map((t, i) => (
-          <div
-            key={i}
-            className="flex gap-[10px] px-2 py-[2px] text-sm font-medium rounded-md bg-slate-100"
-          >
-            {/* <TagButtons tagName={t} /> */}
-            {t}
-          </div>
-        ))}
+    <article className="flex flex-col gap-2 p-2 bg-gray-200 rounded-md shadow-md shadow-gray-500">
+      <h3 className=" w-[350px] h-[80px] p-1 break-words overflow-y-auto bg-gray-100 rounded-md">
+        {task}
+      </h3>
+      <div className="flex justify-between ">
+        <div className="flex gap-2 p-1 text-sm">
+          {(tags || []).map((t, i) => (
+            <div key={i}>
+              <TagButtons tagName={t} selected={tagHighlighting(t)} />
+              {/* or selected={true}  */}
+            </div>
+          ))}
+        </div>
         <button className="hover:text-red-700 text-[26px]">
           <RiDeleteBin2Line />
         </button>
