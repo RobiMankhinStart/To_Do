@@ -5,10 +5,17 @@ import TaskColumn from "./Components/TaskColumn";
 import { TbTargetArrow } from "react-icons/tb";
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
 import { FcProcess } from "react-icons/fc";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const oldTasks = localStorage.getItem("tasks");
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(JSON.parse(oldTasks) || []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   const handleDelete = (taskIndex) => {
     const newTask = tasks.filter((task, index) => index !== taskIndex);
     setTasks(newTask);
