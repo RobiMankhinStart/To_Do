@@ -1,6 +1,6 @@
 import TaskCard from "./TaskCard";
 
-const TaskColumn = ({ icon, colName, tasks, checkStatus }) => {
+const TaskColumn = ({ icon, colName, tasks, checkStatus, handleDelete }) => {
   const Icon = icon;
 
   return (
@@ -11,7 +11,13 @@ const TaskColumn = ({ icon, colName, tasks, checkStatus }) => {
       </div>
       {tasks.map((t, index) =>
         t.status === checkStatus ? (
-          <TaskCard key={index} task={t.task} tags={t.tags} />
+          <TaskCard
+            key={index}
+            index={index}
+            task={t.task}
+            tags={t.tags}
+            handleDelete={handleDelete}
+          />
         ) : null
       )}
     </section>

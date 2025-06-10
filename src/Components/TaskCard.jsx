@@ -2,7 +2,7 @@ import React from "react";
 import TagButtons from "./TagButtons";
 import { RiDeleteBin2Line } from "react-icons/ri";
 
-const TaskCard = ({ task, tags }) => {
+const TaskCard = ({ task, tags, index, handleDelete }) => {
   // .......function to highlight selecting tags ...........
   const tagHighlighting = (t) => tags.some((i) => i == t);
   return (
@@ -19,7 +19,10 @@ const TaskCard = ({ task, tags }) => {
             </div>
           ))}
         </div>
-        <button className="hover:text-red-700 text-[26px]">
+        <button
+          onClick={() => handleDelete(index)}
+          className="hover:text-red-700 text-[26px] bg-slate-500"
+        >
           <RiDeleteBin2Line />
         </button>
       </div>
