@@ -7,7 +7,7 @@ const TaskCard = ({ task, tags, index, handleDelete }) => {
   const tagHighlighting = (t) => tags.some((i) => i == t);
   return (
     <article className="flex flex-col gap-2 p-2 bg-gray-200 rounded-md shadow-md shadow-gray-500">
-      <h3 className=" w-[350px] h-[80px] p-1 break-words overflow-y-auto bg-gray-100 rounded-md">
+      <h3 className="w-[300px] lg:w-[350px] h-[80px] p-1 break-words overflow-y-auto bg-gray-100 rounded-md">
         {task}
       </h3>
       <div className="flex justify-between ">
@@ -21,7 +21,7 @@ const TaskCard = ({ task, tags, index, handleDelete }) => {
         </div>
         <button
           onClick={() => handleDelete(index)}
-          className="hover:text-red-700 text-[26px] bg-slate-500"
+          className="hover:text-red-600 text-[26px]"
         >
           <RiDeleteBin2Line />
         </button>

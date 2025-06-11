@@ -39,13 +39,14 @@ const HeaderSection = ({ setTasks }) => {
   // .......submit all info into the Array........
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTasks((prev) => {
-      return [...prev, taskData];
-    });
     setTaskData({
       task: "",
       status: "todo",
       tags: [],
+    });
+    console.log("taskData : ", taskData);
+    setTasks((prev) => {
+      return [...prev, taskData];
     });
   };
   return (
@@ -53,14 +54,14 @@ const HeaderSection = ({ setTasks }) => {
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           name="task"
-          className="w-[500px] placeholder:text-slate-300 p-3 bg-slate-100  outline-none rounded-md text-lg font-medium"
+          className="w-[240px] m-auto lg:w-[500px] placeholder:text-slate-300 p-3 bg-slate-100  outline-none rounded-md text-lg font-medium"
           type="text"
           placeholder="Enter your task"
           value={taskData.task}
           onChange={handleTaskData}
         />
 
-        <div className="flex gap-8">
+        <div className="flex flex-col gap-8 md:flex-row">
           <div className="flex gap-4 text-gray-600">
             <TagButtons
               selectTag={selectTag}
@@ -83,7 +84,7 @@ const HeaderSection = ({ setTasks }) => {
               selected={highlightSelectedTags("React")}
             />
           </div>
-          <div className="flex gap-3">
+          <div className="flex justify-center gap-3">
             <select
               name="status"
               value={taskData.status}
