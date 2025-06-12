@@ -39,21 +39,22 @@ const HeaderSection = ({ setTasks }) => {
   // .......submit all info into the Array........
   const handleSubmit = (e) => {
     e.preventDefault();
+    setTasks((prev) => {
+      return [...prev, taskData];
+    });
     setTaskData({
       task: "",
       status: "todo",
       tags: [],
     });
     console.log("taskData : ", taskData);
-    setTasks((prev) => {
-      return [...prev, taskData];
-    });
   };
   return (
     <header>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <h2 className="text-3xl font-mono text-center font-semibold">
-          Note-it
+        <h2 className="text-2xl font-mono text-center text-gray-700 font-semibold">
+          <span className="text-4xl text-gray-500 font-bold ">N</span>ote-
+          <span className="text-4xl text-gray-500 font-bold ">i</span>t
         </h2>
         <input
           name="task"
