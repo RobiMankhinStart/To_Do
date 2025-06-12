@@ -1,4 +1,3 @@
-import React from "react";
 import TagButtons from "./TagButtons";
 import { RiDeleteBin2Line } from "react-icons/ri";
 

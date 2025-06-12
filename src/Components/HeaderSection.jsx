@@ -52,6 +52,9 @@ const HeaderSection = ({ setTasks }) => {
   return (
     <header>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <h2 className="text-3xl font-mono text-center font-semibold">
+          Note-it
+        </h2>
         <input
           name="task"
           className="w-[240px] m-auto lg:w-[500px] placeholder:text-slate-300 p-3 bg-slate-100  outline-none rounded-md text-lg font-medium"
