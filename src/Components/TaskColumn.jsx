@@ -5,7 +5,7 @@ const TaskColumn = ({ icon, colName, tasks, checkStatus, handleDelete }) => {
 
   return (
     <section className="text-2xl w-[300px] lg:w-[350px] flex flex-col gap-3 items-center ">
-      <div className="flex gap-2 ">
+      <div className="flex gap-2 items-center text-gray-600 font-semibold font-mono text-3xl">
         <Icon className="text-3xl text-yellow-600" />
         {colName}
       </div>

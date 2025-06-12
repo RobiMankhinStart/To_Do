@@ -1,4 +1,5 @@
 // import "./App.css";
+import { LuNotepadText } from "react-icons/lu";
 
 import HeaderSection from "./Components/HeaderSection";
 import TaskColumn from "./Components/TaskColumn";
