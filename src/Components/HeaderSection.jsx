@@ -39,8 +39,13 @@ const HeaderSection = ({ setTasks }) => {
   // .......submit all info into the Array........
   const handleSubmit = (e) => {
     e.preventDefault();
+    const trimmedData = taskData.task.trim();
+    if (trimmedData === "") {
+      return alert("Please enter some text.");
+    }
+    const newTask = { ...taskData, task: trimmedData };
     setTasks((prev) => {
-      return [...prev, taskData];
+      return [...prev, newTask];
     });
     setTaskData({
       task: "",
