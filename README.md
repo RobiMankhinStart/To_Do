@@ -31,7 +31,7 @@ npm run dev
 Deploy
 Simply push your index.html, CSS, and JS to any static host (Netlify works great! 😊)
 
-📸 Screenshots
+📸 Screenshot
 ![To Do Note It Demo](screenshot.png)
 
 📚 Usage
